@@ -1,0 +1,9 @@
+c:\users\christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Heli.Scada.dal.dll.config
+c:\users\christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Heli.Scada.dal.dll
+c:\users\christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Heli.Scada.dal.pdb
+c:\users\christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\EntityFramework.dll
+c:\users\christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\EntityFramework.xml
+c:\users\christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\de\EntityFramework.resources.dll
+c:\users\christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\obj\Debug\Heli.Scada.dal.dll
+c:\users\christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\obj\Debug\Heli.Scada.dal.pdb
+C:\Users\Christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\obj\Debug\Heli.Scada.dal.csprojResolveAssemblyReference.cache

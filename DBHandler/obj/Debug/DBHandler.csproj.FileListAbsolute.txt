@@ -1,0 +1,11 @@
+C:\Users\Christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\DBHandler.exe
+C:\Users\Christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\DBHandler.pdb
+C:\Users\Christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\EntityFramework.dll
+C:\Users\Christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Heli.Scada.dal.dll
+C:\Users\Christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Heli.Scada.dal.pdb
+C:\Users\Christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\EntityFramework.xml
+C:\Users\Christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\de\EntityFramework.resources.dll
+C:\Users\Christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\DBHandler\obj\Debug\DBHandler.csprojResolveAssemblyReference.cache
+C:\Users\Christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\DBHandler\obj\Debug\DBHandler.exe
+C:\Users\Christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\DBHandler\obj\Debug\DBHandler.pdb
+C:\Users\Christoph\documents\visual studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\DBHandler.exe.config

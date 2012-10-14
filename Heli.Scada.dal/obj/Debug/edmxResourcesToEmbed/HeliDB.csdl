@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MesswerteModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MesswerteEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Anlage" EntityType="MesswerteModel.Anlage" />
+    <EntitySet Name="Kunde" EntityType="MesswerteModel.Kunde" />
+    <EntitySet Name="Messwert" EntityType="MesswerteModel.Messwert" />
+    <EntitySet Name="Messwert_Typ" EntityType="MesswerteModel.Messwert_Typ" />
+    <EntitySet Name="Techniker" EntityType="MesswerteModel.Techniker" />
+    <AssociationSet Name="Anlage_Messwert" Association="MesswerteModel.Anlage_Messwert">
+      <End Role="Anlage" EntitySet="Anlage" />
+      <End Role="Messwert" EntitySet="Messwert" />
+    </AssociationSet>
+    <AssociationSet Name="Kunde_Anlage" Association="MesswerteModel.Kunde_Anlage">
+      <End Role="Kunde" EntitySet="Kunde" />
+      <End Role="Anlage" EntitySet="Anlage" />
+    </AssociationSet>
+    <AssociationSet Name="Techniker_Kunde" Association="MesswerteModel.Techniker_Kunde">
+      <End Role="Techniker" EntitySet="Techniker" />
+      <End Role="Kunde" EntitySet="Kunde" />
+    </AssociationSet>
+    <AssociationSet Name="Messwert_Typ_Messwert" Association="MesswerteModel.Messwert_Typ_Messwert">
+      <End Role="Messwert_Typ" EntitySet="Messwert_Typ" />
+      <End Role="Messwert" EntitySet="Messwert" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Anlage">
+    <Key>
+      <PropertyRef Name="Seriennummer" />
+    </Key>
+    <Property Name="Seriennummer" Type="Int32" Nullable="false" />
+    <Property Name="Longitude" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Latitude" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Beschreibung" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="Kunde_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Messwert" Relationship="MesswerteModel.Anlage_Messwert" FromRole="Anlage" ToRole="Messwert" />
+    <NavigationProperty Name="Kunde" Relationship="MesswerteModel.Kunde_Anlage" FromRole="Anlage" ToRole="Kunde" />
+  </EntityType>
+  <EntityType Name="Kunde">
+    <Key>
+      <PropertyRef Name="Kunde_ID" />
+    </Key>
+    <Property Name="Kunde_ID" Type="Int32" Nullable="false" />
+    <Property Name="Vorname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Nachname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Passwort" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Techniker_ID" Type="Int32" />
+    <NavigationProperty Name="Anlage" Relationship="MesswerteModel.Kunde_Anlage" FromRole="Kunde" ToRole="Anlage" />
+    <NavigationProperty Name="Techniker" Relationship="MesswerteModel.Techniker_Kunde" FromRole="Kunde" ToRole="Techniker" />
+  </EntityType>
+  <EntityType Name="Messwert">
+    <Key>
+      <PropertyRef Name="Messwert_ID" />
+    </Key>
+    <Property Name="Messwert_ID" Type="Int32" Nullable="false" />
+    <Property Name="Zeitpunkt" Type="Int32" Nullable="false" />
+    <Property Name="Seriennummer" Type="Int32" Nullable="false" />
+    <Property Name="Messwert_Typ_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Anlage" Relationship="MesswerteModel.Anlage_Messwert" FromRole="Messwert" ToRole="Anlage" />
+    <NavigationProperty Name="Messwert_Typ" Relationship="MesswerteModel.Messwert_Typ_Messwert" FromRole="Messwert" ToRole="Messwert_Typ" />
+  </EntityType>
+  <EntityType Name="Messwert_Typ">
+    <Key>
+      <PropertyRef Name="Messwert_Typ_ID" />
+    </Key>
+    <Property Name="Messwert_Typ_ID" Type="Int32" Nullable="false" />
+    <Property Name="Beschreibung" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="MinWert" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="MaxWert" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <Property Name="Einheit" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Messwert" Relationship="MesswerteModel.Messwert_Typ_Messwert" FromRole="Messwert_Typ" ToRole="Messwert" />
+  </EntityType>
+  <EntityType Name="Techniker">
+    <Key>
+      <PropertyRef Name="Techniker_ID" />
+    </Key>
+    <Property Name="Techniker_ID" Type="Int32" Nullable="false" />
+    <Property Name="Vorname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Nachname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Passwort" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Kunde" Relationship="MesswerteModel.Techniker_Kunde" FromRole="Techniker" ToRole="Kunde" />
+  </EntityType>
+  <Association Name="Anlage_Messwert">
+    <End Role="Anlage" Type="MesswerteModel.Anlage" Multiplicity="1" />
+    <End Role="Messwert" Type="MesswerteModel.Messwert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Anlage">
+        <PropertyRef Name="Seriennummer" />
+      </Principal>
+      <Dependent Role="Messwert">
+        <PropertyRef Name="Seriennummer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Kunde_Anlage">
+    <End Role="Kunde" Type="MesswerteModel.Kunde" Multiplicity="1" />
+    <End Role="Anlage" Type="MesswerteModel.Anlage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kunde">
+        <PropertyRef Name="Kunde_ID" />
+      </Principal>
+      <Dependent Role="Anlage">
+        <PropertyRef Name="Kunde_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Techniker_Kunde">
+    <End Role="Techniker" Type="MesswerteModel.Techniker" Multiplicity="0..1" />
+    <End Role="Kunde" Type="MesswerteModel.Kunde" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Techniker">
+        <PropertyRef Name="Techniker_ID" />
+      </Principal>
+      <Dependent Role="Kunde">
+        <PropertyRef Name="Techniker_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Messwert_Typ_Messwert">
+    <End Role="Messwert_Typ" Type="MesswerteModel.Messwert_Typ" Multiplicity="1" />
+    <End Role="Messwert" Type="MesswerteModel.Messwert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Messwert_Typ">
+        <PropertyRef Name="Messwert_Typ_ID" />
+      </Principal>
+      <Dependent Role="Messwert">
+        <PropertyRef Name="Messwert_Typ_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

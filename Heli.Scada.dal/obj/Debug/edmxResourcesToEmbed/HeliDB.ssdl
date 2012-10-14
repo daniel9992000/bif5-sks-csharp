@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MesswerteModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MesswerteModelStoreContainer">
+    <EntitySet Name="Anlage" EntityType="MesswerteModel.Store.Anlage" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Kunde" EntityType="MesswerteModel.Store.Kunde" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Messwert" EntityType="MesswerteModel.Store.Messwert" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Messwert_Typ" EntityType="MesswerteModel.Store.Messwert_Typ" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Techniker" EntityType="MesswerteModel.Store.Techniker" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="Anlage_Messwert" Association="MesswerteModel.Store.Anlage_Messwert">
+      <End Role="Anlage" EntitySet="Anlage" />
+      <End Role="Messwert" EntitySet="Messwert" />
+    </AssociationSet>
+    <AssociationSet Name="Kunde_Anlage" Association="MesswerteModel.Store.Kunde_Anlage">
+      <End Role="Kunde" EntitySet="Kunde" />
+      <End Role="Anlage" EntitySet="Anlage" />
+    </AssociationSet>
+    <AssociationSet Name="Messwert_Typ_Messwert" Association="MesswerteModel.Store.Messwert_Typ_Messwert">
+      <End Role="Messwert_Typ" EntitySet="Messwert_Typ" />
+      <End Role="Messwert" EntitySet="Messwert" />
+    </AssociationSet>
+    <AssociationSet Name="Techniker_Kunde" Association="MesswerteModel.Store.Techniker_Kunde">
+      <End Role="Techniker" EntitySet="Techniker" />
+      <End Role="Kunde" EntitySet="Kunde" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Anlage">
+    <Key>
+      <PropertyRef Name="Seriennummer" />
+    </Key>
+    <Property Name="Seriennummer" Type="int" Nullable="false" />
+    <Property Name="Longitude" Type="numeric" />
+    <Property Name="Latitude" Type="numeric" />
+    <Property Name="Beschreibung" Type="varchar" Nullable="false" MaxLength="250" />
+    <Property Name="Kunde_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Kunde">
+    <Key>
+      <PropertyRef Name="Kunde_ID" />
+    </Key>
+    <Property Name="Kunde_ID" Type="int" Nullable="false" />
+    <Property Name="Vorname" Type="varchar" MaxLength="40" />
+    <Property Name="Nachname" Type="varchar" MaxLength="40" />
+    <Property Name="Username" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="Passwort" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="Email" Type="varchar" MaxLength="40" />
+    <Property Name="Techniker_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Messwert">
+    <Key>
+      <PropertyRef Name="Messwert_ID" />
+    </Key>
+    <Property Name="Messwert_ID" Type="int" Nullable="false" />
+    <Property Name="Zeitpunkt" Type="int" Nullable="false" />
+    <Property Name="Seriennummer" Type="int" Nullable="false" />
+    <Property Name="Messwert_Typ_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Messwert_Typ">
+    <Key>
+      <PropertyRef Name="Messwert_Typ_ID" />
+    </Key>
+    <Property Name="Messwert_Typ_ID" Type="int" Nullable="false" />
+    <Property Name="Beschreibung" Type="varchar" Nullable="false" MaxLength="150" />
+    <Property Name="MinWert" Type="numeric" Nullable="false" />
+    <Property Name="MaxWert" Type="numeric" Nullable="false" />
+    <Property Name="Einheit" Type="varchar" Nullable="false" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="Techniker">
+    <Key>
+      <PropertyRef Name="Techniker_ID" />
+    </Key>
+    <Property Name="Techniker_ID" Type="int" Nullable="false" />
+    <Property Name="Vorname" Type="varchar" MaxLength="40" />
+    <Property Name="Nachname" Type="varchar" MaxLength="40" />
+    <Property Name="Username" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="Passwort" Type="varchar" Nullable="false" MaxLength="40" />
+    <Property Name="Email" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <Association Name="Anlage_Messwert">
+    <End Role="Anlage" Type="MesswerteModel.Store.Anlage" Multiplicity="1" />
+    <End Role="Messwert" Type="MesswerteModel.Store.Messwert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Anlage">
+        <PropertyRef Name="Seriennummer" />
+      </Principal>
+      <Dependent Role="Messwert">
+        <PropertyRef Name="Seriennummer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Kunde_Anlage">
+    <End Role="Kunde" Type="MesswerteModel.Store.Kunde" Multiplicity="1" />
+    <End Role="Anlage" Type="MesswerteModel.Store.Anlage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kunde">
+        <PropertyRef Name="Kunde_ID" />
+      </Principal>
+      <Dependent Role="Anlage">
+        <PropertyRef Name="Kunde_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Messwert_Typ_Messwert">
+    <End Role="Messwert_Typ" Type="MesswerteModel.Store.Messwert_Typ" Multiplicity="1" />
+    <End Role="Messwert" Type="MesswerteModel.Store.Messwert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Messwert_Typ">
+        <PropertyRef Name="Messwert_Typ_ID" />
+      </Principal>
+      <Dependent Role="Messwert">
+        <PropertyRef Name="Messwert_Typ_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Techniker_Kunde">
+    <End Role="Techniker" Type="MesswerteModel.Store.Techniker" Multiplicity="0..1" />
+    <End Role="Kunde" Type="MesswerteModel.Store.Kunde" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Techniker">
+        <PropertyRef Name="Techniker_ID" />
+      </Principal>
+      <Dependent Role="Kunde">
+        <PropertyRef Name="Techniker_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

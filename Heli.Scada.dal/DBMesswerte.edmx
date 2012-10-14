@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MesswerteModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="MesswerteModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="MesswerteModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Engineer" EntityType="MesswerteModel.Store.Engineer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Installation" EntityType="MesswerteModel.Store.Installation" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Measurement" EntityType="MesswerteModel.Store.Measurement" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Measurement_Type" EntityType="MesswerteModel.Store.Measurement_Type" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="Customer_Installation" Association="MesswerteModel.Store.Customer_Installation">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Installation" EntitySet="Installation" />
+          </AssociationSet>
+          <AssociationSet Name="Engineer_Customer" Association="MesswerteModel.Store.Engineer_Customer">
+            <End Role="Engineer" EntitySet="Engineer" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="Installation_Measurement" Association="MesswerteModel.Store.Installation_Measurement">
+            <End Role="Installation" EntitySet="Installation" />
+            <End Role="Measurement" EntitySet="Measurement" />
+          </AssociationSet>
+          <AssociationSet Name="Measurement_Type_Measurement" Association="MesswerteModel.Store.Measurement_Type_Measurement">
+            <End Role="Measurement_Type" EntitySet="Measurement_Type" />
+            <End Role="Measurement" EntitySet="Measurement" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customerid" />
+          </Key>
+          <Property Name="customerid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="varchar" MaxLength="40" />
+          <Property Name="lastname" Type="varchar" MaxLength="40" />
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="password" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="email" Type="varchar" MaxLength="40" />
+          <Property Name="engineerid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Engineer">
+          <Key>
+            <PropertyRef Name="engineerid" />
+          </Key>
+          <Property Name="engineerid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="varchar" MaxLength="40" />
+          <Property Name="lastname" Type="varchar" MaxLength="40" />
+          <Property Name="username" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="password" Type="varchar" Nullable="false" MaxLength="40" />
+          <Property Name="email" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Installation">
+          <Key>
+            <PropertyRef Name="installationid" />
+          </Key>
+          <Property Name="installationid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="serialno" Type="varchar" MaxLength="40" />
+          <Property Name="longitude" Type="numeric" />
+          <Property Name="latitude" Type="numeric" />
+          <Property Name="description" Type="varchar" Nullable="false" MaxLength="250" />
+          <Property Name="customerid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Measurement">
+          <Key>
+            <PropertyRef Name="measid" />
+          </Key>
+          <Property Name="measid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="timestamp" Type="int" Nullable="false" />
+          <Property Name="installationid" Type="int" Nullable="false" />
+          <Property Name="typeid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Measurement_Type">
+          <Key>
+            <PropertyRef Name="typeid" />
+          </Key>
+          <Property Name="typeid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="minvalue" Type="numeric" Nullable="false" />
+          <Property Name="maxvalue" Type="numeric" Nullable="false" />
+          <Property Name="unit" Type="varchar" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <Association Name="Customer_Installation">
+          <End Role="Customer" Type="MesswerteModel.Store.Customer" Multiplicity="1" />
+          <End Role="Installation" Type="MesswerteModel.Store.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerid" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Engineer_Customer">
+          <End Role="Engineer" Type="MesswerteModel.Store.Engineer" Multiplicity="1" />
+          <End Role="Customer" Type="MesswerteModel.Store.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engineer">
+              <PropertyRef Name="engineerid" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="engineerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Installation_Measurement">
+          <End Role="Installation" Type="MesswerteModel.Store.Installation" Multiplicity="1" />
+          <End Role="Measurement" Type="MesswerteModel.Store.Measurement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Installation">
+              <PropertyRef Name="installationid" />
+            </Principal>
+            <Dependent Role="Measurement">
+              <PropertyRef Name="installationid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Measurement_Type_Measurement">
+          <End Role="Measurement_Type" Type="MesswerteModel.Store.Measurement_Type" Multiplicity="1" />
+          <End Role="Measurement" Type="MesswerteModel.Store.Measurement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Measurement_Type">
+              <PropertyRef Name="typeid" />
+            </Principal>
+            <Dependent Role="Measurement">
+              <PropertyRef Name="typeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MesswerteModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="MesswerteEntities1" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Customer" EntityType="MesswerteModel.Customer" />
+          <EntitySet Name="Engineer" EntityType="MesswerteModel.Engineer" />
+          <EntitySet Name="Installation" EntityType="MesswerteModel.Installation" />
+          <EntitySet Name="Measurement" EntityType="MesswerteModel.Measurement" />
+          <EntitySet Name="Measurement_Type" EntityType="MesswerteModel.Measurement_Type" />
+          <AssociationSet Name="Customer_Installation" Association="MesswerteModel.Customer_Installation">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Installation" EntitySet="Installation" />
+          </AssociationSet>
+          <AssociationSet Name="Engineer_Customer" Association="MesswerteModel.Engineer_Customer">
+            <End Role="Engineer" EntitySet="Engineer" />
+            <End Role="Customer" EntitySet="Customer" />
+          </AssociationSet>
+          <AssociationSet Name="Installation_Measurement" Association="MesswerteModel.Installation_Measurement">
+            <End Role="Installation" EntitySet="Installation" />
+            <End Role="Measurement" EntitySet="Measurement" />
+          </AssociationSet>
+          <AssociationSet Name="Measurement_Type_Measurement" Association="MesswerteModel.Measurement_Type_Measurement">
+            <End Role="Measurement_Type" EntitySet="Measurement_Type" />
+            <End Role="Measurement" EntitySet="Measurement" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customerid" />
+          </Key>
+          <Property Name="customerid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="lastname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="engineerid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Installation" Relationship="MesswerteModel.Customer_Installation" FromRole="Customer" ToRole="Installation" />
+          <NavigationProperty Name="Engineer" Relationship="MesswerteModel.Engineer_Customer" FromRole="Customer" ToRole="Engineer" />
+        </EntityType>
+        <EntityType Name="Engineer">
+          <Key>
+            <PropertyRef Name="engineerid" />
+          </Key>
+          <Property Name="engineerid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="lastname" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="email" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Customer" Relationship="MesswerteModel.Engineer_Customer" FromRole="Engineer" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Installation">
+          <Key>
+            <PropertyRef Name="installationid" />
+          </Key>
+          <Property Name="installationid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="serialno" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="longitude" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="latitude" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <Property Name="customerid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="MesswerteModel.Customer_Installation" FromRole="Installation" ToRole="Customer" />
+          <NavigationProperty Name="Measurement" Relationship="MesswerteModel.Installation_Measurement" FromRole="Installation" ToRole="Measurement" />
+        </EntityType>
+        <EntityType Name="Measurement">
+          <Key>
+            <PropertyRef Name="measid" />
+          </Key>
+          <Property Name="measid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="timestamp" Type="Int32" Nullable="false" />
+          <Property Name="installationid" Type="Int32" Nullable="false" />
+          <Property Name="typeid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Installation" Relationship="MesswerteModel.Installation_Measurement" FromRole="Measurement" ToRole="Installation" />
+          <NavigationProperty Name="Measurement_Type" Relationship="MesswerteModel.Measurement_Type_Measurement" FromRole="Measurement" ToRole="Measurement_Type" />
+        </EntityType>
+        <EntityType Name="Measurement_Type">
+          <Key>
+            <PropertyRef Name="typeid" />
+          </Key>
+          <Property Name="typeid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="minvalue" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="maxvalue" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="unit" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Measurement" Relationship="MesswerteModel.Measurement_Type_Measurement" FromRole="Measurement_Type" ToRole="Measurement" />
+        </EntityType>
+        <Association Name="Customer_Installation">
+          <End Role="Customer" Type="MesswerteModel.Customer" Multiplicity="1" />
+          <End Role="Installation" Type="MesswerteModel.Installation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerid" />
+            </Principal>
+            <Dependent Role="Installation">
+              <PropertyRef Name="customerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Engineer_Customer">
+          <End Role="Engineer" Type="MesswerteModel.Engineer" Multiplicity="1" />
+          <End Role="Customer" Type="MesswerteModel.Customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engineer">
+              <PropertyRef Name="engineerid" />
+            </Principal>
+            <Dependent Role="Customer">
+              <PropertyRef Name="engineerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Installation_Measurement">
+          <End Role="Installation" Type="MesswerteModel.Installation" Multiplicity="1" />
+          <End Role="Measurement" Type="MesswerteModel.Measurement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Installation">
+              <PropertyRef Name="installationid" />
+            </Principal>
+            <Dependent Role="Measurement">
+              <PropertyRef Name="installationid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Measurement_Type_Measurement">
+          <End Role="Measurement_Type" Type="MesswerteModel.Measurement_Type" Multiplicity="1" />
+          <End Role="Measurement" Type="MesswerteModel.Measurement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Measurement_Type">
+              <PropertyRef Name="typeid" />
+            </Principal>
+            <Dependent Role="Measurement">
+              <PropertyRef Name="typeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MesswerteModelStoreContainer" CdmEntityContainer="MesswerteEntities1">
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="MesswerteModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="engineerid" ColumnName="engineerid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Engineer">
+            <EntityTypeMapping TypeName="MesswerteModel.Engineer">
+              <MappingFragment StoreEntitySet="Engineer">
+                <ScalarProperty Name="engineerid" ColumnName="engineerid" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Installation">
+            <EntityTypeMapping TypeName="MesswerteModel.Installation">
+              <MappingFragment StoreEntitySet="Installation">
+                <ScalarProperty Name="installationid" ColumnName="installationid" />
+                <ScalarProperty Name="serialno" ColumnName="serialno" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="customerid" ColumnName="customerid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Measurement">
+            <EntityTypeMapping TypeName="MesswerteModel.Measurement">
+              <MappingFragment StoreEntitySet="Measurement">
+                <ScalarProperty Name="measid" ColumnName="measid" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="installationid" ColumnName="installationid" />
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Measurement_Type">
+            <EntityTypeMapping TypeName="MesswerteModel.Measurement_Type">
+              <MappingFragment StoreEntitySet="Measurement_Type">
+                <ScalarProperty Name="typeid" ColumnName="typeid" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="minvalue" ColumnName="minvalue" />
+                <ScalarProperty Name="maxvalue" ColumnName="maxvalue" />
+                <ScalarProperty Name="unit" ColumnName="unit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

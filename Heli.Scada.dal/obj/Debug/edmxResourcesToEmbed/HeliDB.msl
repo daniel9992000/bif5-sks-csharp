@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MesswerteModelStoreContainer" CdmEntityContainer="MesswerteEntities">
+    <EntitySetMapping Name="Anlage">
+      <EntityTypeMapping TypeName="MesswerteModel.Anlage">
+        <MappingFragment StoreEntitySet="Anlage">
+          <ScalarProperty Name="Seriennummer" ColumnName="Seriennummer" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+          <ScalarProperty Name="Kunde_ID" ColumnName="Kunde_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kunde">
+      <EntityTypeMapping TypeName="MesswerteModel.Kunde">
+        <MappingFragment StoreEntitySet="Kunde">
+          <ScalarProperty Name="Kunde_ID" ColumnName="Kunde_ID" />
+          <ScalarProperty Name="Vorname" ColumnName="Vorname" />
+          <ScalarProperty Name="Nachname" ColumnName="Nachname" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Passwort" ColumnName="Passwort" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Techniker_ID" ColumnName="Techniker_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messwert">
+      <EntityTypeMapping TypeName="MesswerteModel.Messwert">
+        <MappingFragment StoreEntitySet="Messwert">
+          <ScalarProperty Name="Messwert_ID" ColumnName="Messwert_ID" />
+          <ScalarProperty Name="Zeitpunkt" ColumnName="Zeitpunkt" />
+          <ScalarProperty Name="Seriennummer" ColumnName="Seriennummer" />
+          <ScalarProperty Name="Messwert_Typ_ID" ColumnName="Messwert_Typ_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messwert_Typ">
+      <EntityTypeMapping TypeName="MesswerteModel.Messwert_Typ">
+        <MappingFragment StoreEntitySet="Messwert_Typ">
+          <ScalarProperty Name="Messwert_Typ_ID" ColumnName="Messwert_Typ_ID" />
+          <ScalarProperty Name="Beschreibung" ColumnName="Beschreibung" />
+          <ScalarProperty Name="MinWert" ColumnName="MinWert" />
+          <ScalarProperty Name="MaxWert" ColumnName="MaxWert" />
+          <ScalarProperty Name="Einheit" ColumnName="Einheit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Techniker">
+      <EntityTypeMapping TypeName="MesswerteModel.Techniker">
+        <MappingFragment StoreEntitySet="Techniker">
+          <ScalarProperty Name="Techniker_ID" ColumnName="Techniker_ID" />
+          <ScalarProperty Name="Vorname" ColumnName="Vorname" />
+          <ScalarProperty Name="Nachname" ColumnName="Nachname" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Passwort" ColumnName="Passwort" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

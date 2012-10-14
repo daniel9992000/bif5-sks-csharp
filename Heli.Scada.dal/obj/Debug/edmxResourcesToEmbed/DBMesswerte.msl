@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MesswerteModelStoreContainer" CdmEntityContainer="MesswerteEntities1">
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="MesswerteModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="engineerid" ColumnName="engineerid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Engineer">
+      <EntityTypeMapping TypeName="MesswerteModel.Engineer">
+        <MappingFragment StoreEntitySet="Engineer">
+          <ScalarProperty Name="engineerid" ColumnName="engineerid" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Installation">
+      <EntityTypeMapping TypeName="MesswerteModel.Installation">
+        <MappingFragment StoreEntitySet="Installation">
+          <ScalarProperty Name="installationid" ColumnName="installationid" />
+          <ScalarProperty Name="serialno" ColumnName="serialno" />
+          <ScalarProperty Name="longitude" ColumnName="longitude" />
+          <ScalarProperty Name="latitude" ColumnName="latitude" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="customerid" ColumnName="customerid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Measurement">
+      <EntityTypeMapping TypeName="MesswerteModel.Measurement">
+        <MappingFragment StoreEntitySet="Measurement">
+          <ScalarProperty Name="measid" ColumnName="measid" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="installationid" ColumnName="installationid" />
+          <ScalarProperty Name="typeid" ColumnName="typeid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Measurement_Type">
+      <EntityTypeMapping TypeName="MesswerteModel.Measurement_Type">
+        <MappingFragment StoreEntitySet="Measurement_Type">
+          <ScalarProperty Name="typeid" ColumnName="typeid" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="minvalue" ColumnName="minvalue" />
+          <ScalarProperty Name="maxvalue" ColumnName="maxvalue" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
