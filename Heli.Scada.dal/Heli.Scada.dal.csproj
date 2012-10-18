@@ -49,6 +49,7 @@
     <Compile Include="Customer.cs">
       <DependentUpon>DBMesswerte.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomerRepository.cs" />
     <Compile Include="DBMesswerte.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -67,15 +68,20 @@
     <Compile Include="Engineer.cs">
       <DependentUpon>DBMesswerte.tt</DependentUpon>
     </Compile>
+    <Compile Include="EngineerRepository.cs" />
     <Compile Include="Installation.cs">
       <DependentUpon>DBMesswerte.tt</DependentUpon>
     </Compile>
+    <Compile Include="InstallationRepository.cs" />
+    <Compile Include="IRepository.cs" />
     <Compile Include="Measurement.cs">
       <DependentUpon>DBMesswerte.tt</DependentUpon>
     </Compile>
+    <Compile Include="MeasurementRepository.cs" />
     <Compile Include="Measurement_Type.cs">
       <DependentUpon>DBMesswerte.tt</DependentUpon>
     </Compile>
+    <Compile Include="MeasurmentTypeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

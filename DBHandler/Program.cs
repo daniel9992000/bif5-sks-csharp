@@ -14,7 +14,7 @@ namespace DBHandler
             using (var db = new MesswerteEntities1())
             {
              
-                //Add an engineer do db
+/*                //Add an engineer do db
                 Engineer e = new Engineer();
                 e.firstname = "Heinz";
                 e.lastname = "Grois";
@@ -36,11 +36,25 @@ namespace DBHandler
                 db.Customer.Add(c);
                 db.SaveChanges();
 
+
                 //Read from DB
                 foreach (var item in db.Customer)
                 {
                     Console.WriteLine("Kundenname: " + item.firstname + " " + item.lastname);
                     Console.WriteLine("Zugehöriger Engineer: " + db.Engineer.Find(item.engineerid).firstname + " " + db.Engineer.Find(item.engineerid).lastname);
+                }
+               
+                */
+                EngineerRepository erepo = new EngineerRepository();
+                Engineer e = new Engineer();
+                e = erepo.GetAll().First<Engineer>();
+                e.firstname = "Karlicku";
+                erepo.Edit(e);
+                erepo.Save();
+
+                foreach (var item in erepo.GetAll())
+                {
+                    Console.WriteLine(item.firstname);
                 }
                 Console.ReadLine();
             }
