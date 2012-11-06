@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heli.Scada.dal", "Heli.Scada.dal\Heli.Scada.dal.csproj", "{EE54D739-51BC-4D28-8446-05647BC9FB04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBHandler", "DBHandler\DBHandler.csproj", "{014B3A7B-E948-48E7-A5E2-881D0D807A2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heli.Scada.BL", "Heli.Scada.BL\Heli.Scada.BL.csproj", "{8C14A250-2967-4F18-A241-00270A865F95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heli.Scada.Unittests", "Heli.Scada.Unittests\Heli.Scada.Unittests.csproj", "{EE51C3C2-7978-40BB-AB22-59019797CE05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heli.Scada.Entities", "Heli.Scada.Entities\Heli.Scada.Entities.csproj", "{CAAC6784-EDAD-4054-81ED-FD87BC775620}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EE54D739-51BC-4D28-8446-05647BC9FB04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE54D739-51BC-4D28-8446-05647BC9FB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE54D739-51BC-4D28-8446-05647BC9FB04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE54D739-51BC-4D28-8446-05647BC9FB04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{014B3A7B-E948-48E7-A5E2-881D0D807A2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{014B3A7B-E948-48E7-A5E2-881D0D807A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{014B3A7B-E948-48E7-A5E2-881D0D807A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{014B3A7B-E948-48E7-A5E2-881D0D807A2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C14A250-2967-4F18-A241-00270A865F95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C14A250-2967-4F18-A241-00270A865F95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C14A250-2967-4F18-A241-00270A865F95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C14A250-2967-4F18-A241-00270A865F95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE51C3C2-7978-40BB-AB22-59019797CE05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE51C3C2-7978-40BB-AB22-59019797CE05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE51C3C2-7978-40BB-AB22-59019797CE05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE51C3C2-7978-40BB-AB22-59019797CE05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAAC6784-EDAD-4054-81ED-FD87BC775620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAAC6784-EDAD-4054-81ED-FD87BC775620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAAC6784-EDAD-4054-81ED-FD87BC775620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAAC6784-EDAD-4054-81ED-FD87BC775620}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35;packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35;packages\EnterpriseLibrary.Validation.5.0.505.0\lib\NET35
+	EndGlobalSection
+EndGlobal
