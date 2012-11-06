@@ -8,7 +8,8 @@ namespace Heli.Scada.dal
 {
     public interface IRepository<T> where T:class 
     {
-        IQueryable<T> GetAll();
+        List<T> GetAll();
+        T GetById(int id);
         void Add(T entity);
         void Delete(T entity);
         void Edit(T entity);
