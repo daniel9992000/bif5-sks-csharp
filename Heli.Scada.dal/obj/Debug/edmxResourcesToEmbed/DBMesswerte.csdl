@@ -67,7 +67,7 @@
       <PropertyRef Name="measid" />
     </Key>
     <Property Name="measid" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
-    <Property Name="timestamp" Type="Int32" Nullable="false" />
+    <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="installationid" Type="Int32" Nullable="false" />
     <Property Name="typeid" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Installation" Relationship="MesswerteModel.Installation_Measurement" FromRole="Measurement" ToRole="Installation" />

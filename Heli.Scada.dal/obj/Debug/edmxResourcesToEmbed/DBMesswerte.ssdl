@@ -62,7 +62,7 @@
       <PropertyRef Name="measid" />
     </Key>
     <Property Name="measid" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="timestamp" Type="int" Nullable="false" />
+    <Property Name="timestamp" Type="datetime" Nullable="false" />
     <Property Name="installationid" Type="int" Nullable="false" />
     <Property Name="typeid" Type="int" Nullable="false" />
   </EntityType>

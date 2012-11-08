@@ -15,7 +15,7 @@ namespace Heli.Scada.dal
     public partial class Measurement
     {
         public int measid { get; set; }
-        public int timestamp { get; set; }
+        public System.DateTime timestamp { get; set; }
         public int installationid { get; set; }
         public int typeid { get; set; }
     

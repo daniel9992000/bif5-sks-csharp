@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heli.Scada.Unittests", "Hel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heli.Scada.Entities", "Heli.Scada.Entities\Heli.Scada.Entities.csproj", "{CAAC6784-EDAD-4054-81ED-FD87BC775620}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heli.Scada.Exceptions", "Heli.Scada.Exceptions.cs\Heli.Scada.Exceptions.csproj", "{72B16727-B1ED-4282-B661-9B22D42F8540}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{CAAC6784-EDAD-4054-81ED-FD87BC775620}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAAC6784-EDAD-4054-81ED-FD87BC775620}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAAC6784-EDAD-4054-81ED-FD87BC775620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B16727-B1ED-4282-B661-9B22D42F8540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B16727-B1ED-4282-B661-9B22D42F8540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B16727-B1ED-4282-B661-9B22D42F8540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B16727-B1ED-4282-B661-9B22D42F8540}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
