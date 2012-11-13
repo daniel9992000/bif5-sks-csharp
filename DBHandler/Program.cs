@@ -16,7 +16,7 @@ namespace DBHandler
         static void Main(string[] args)
         {
           
-            EngineerRepository erepo = new EngineerRepository();
+            EngineerRepository erepo = new EngineerRepository(new MesswerteEntities1());
             CustomerRepository crepo = new CustomerRepository();
 
             CustomerModel customer = new CustomerModel();
