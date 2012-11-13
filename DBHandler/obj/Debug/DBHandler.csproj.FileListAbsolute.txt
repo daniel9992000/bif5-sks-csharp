@@ -1,9 +1,11 @@
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\DBHandler.exe.config
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\DBHandler.exe
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\DBHandler.pdb
+C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\BLInterfaces.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\EntityFramework.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Heli.Scada.BL.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Heli.Scada.dal.dll
+C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Heli.Scada.DalInterfaces.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Heli.Scada.Entities.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Validation.dll
@@ -14,7 +16,9 @@ C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandle
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Microsoft.Practices.Unity.Interception.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\log4net.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Heli.Scada.Exceptions.cs.dll
+C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\BLInterfaces.pdb
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Heli.Scada.BL.pdb
+C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Heli.Scada.DalInterfaces.pdb
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Heli.Scada.dal.pdb
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\Heli.Scada.Entities.pdb
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\DBHandler\bin\Debug\EntityFramework.xml

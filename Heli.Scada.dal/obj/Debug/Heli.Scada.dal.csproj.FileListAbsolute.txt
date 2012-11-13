@@ -2,6 +2,7 @@ C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Sca
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Heli.Scada.dal.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Heli.Scada.dal.pdb
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\EntityFramework.dll
+C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Heli.Scada.DalInterfaces.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Heli.Scada.Entities.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Heli.Scada.Exceptions.cs.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\log4net.dll
@@ -12,6 +13,7 @@ C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Sca
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Microsoft.Practices.Unity.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Microsoft.Practices.Unity.Interception.Configuration.dll
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Heli.Scada.DalInterfaces.pdb
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Heli.Scada.Entities.pdb
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\Heli.Scada.Exceptions.cs.pdb
 C:\Users\Christoph\Documents\Visual Studio 2012\Projects\Heli.Scada.dal\Heli.Scada.dal\bin\Debug\EntityFramework.xml

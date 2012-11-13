@@ -61,7 +61,7 @@ namespace Heli.Scada.dal
             Engineer engineer = null;
             try
             {
-                EngineerRepository erepo = new EngineerRepository();
+                EngineerRepository erepo = new EngineerRepository(new MesswerteEntities1());
                 InstallationRepository irepo = new InstallationRepository();
                 engineer = new Engineer();
                 engineer.firstname = inengineer.firstname;

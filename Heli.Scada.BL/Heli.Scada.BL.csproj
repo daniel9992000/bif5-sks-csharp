@@ -77,6 +77,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLInterfaces\Heli.Scada.BLInterfaces.csproj">
+      <Project>{ac429c89-6ffe-42b8-a518-751184008361}</Project>
+      <Name>Heli.Scada.BLInterfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Heli.Scada.DalInterfaces\Heli.Scada.DalInterfaces.csproj">
+      <Project>{9115ff08-75ad-4146-bdb0-680c0f1969f1}</Project>
+      <Name>Heli.Scada.DalInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Heli.Scada.dal\Heli.Scada.dal.csproj">
       <Project>{ee54d739-51bc-4d28-8446-05647bc9fb04}</Project>
       <Name>Heli.Scada.dal</Name>

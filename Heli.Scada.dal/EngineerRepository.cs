@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 using Heli.Scada.Entities;
 using Heli.Scada.Exceptions;
 using log4net;
+using Heli.Scada.DalInterfaces;
+using System.Data.Entity;
 
 namespace Heli.Scada.dal
 {
     public class EngineerRepository:IEngineerRepository<EngineerModel>
     {
-        private MesswerteEntities1 context = new MesswerteEntities1();
+        private MesswerteEntities1 context;
         static readonly ILog log = LogManager.GetLogger(typeof(EngineerRepository));
+
+        public EngineerRepository(MesswerteEntities1 context)
+        {
+            this.context = context;
+        }
 
         public List<EngineerModel> GetAll()
         {

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Heli.Scada.Entities;
 using Heli.Scada.Exceptions;
 using log4net;
+using Heli.Scada.DalInterfaces;
 
 namespace Heli.Scada.dal
 {

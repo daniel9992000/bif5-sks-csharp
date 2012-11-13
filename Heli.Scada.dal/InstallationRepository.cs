@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Heli.Scada.Entities;
 using Heli.Scada.Exceptions;
 using log4net;
+using Heli.Scada.DalInterfaces;
 
 namespace Heli.Scada.dal
 {
@@ -16,6 +17,7 @@ namespace Heli.Scada.dal
 
         public List<InstallationModel> GetAll()
         {
+            log4net.Config.XmlConfigurator.Configure();
             List<InstallationModel> ilist = null;
             try
             {

@@ -8,10 +8,12 @@ using Heli.Scada.Entities;
 using Heli.Scada.Exceptions;
 using log4net;
 using log4net.Config;
+using Heli.Scada.DalInterfaces;
+using Heli.Scada.BLInterfaces;
 
 namespace Heli.Scada.BL
 {
-    public class HelperFunctions
+    public class HelperFunctions: IHelperfunctions
     {
         IInstallationRepository<InstallationModel> irepo;
         IMeasurementRepository<MeasurementModel> mrepo;

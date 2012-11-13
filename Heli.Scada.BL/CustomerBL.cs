@@ -11,10 +11,12 @@ using Heli.Scada.Exceptions;
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using Microsoft.Practices.EnterpriseLibrary.Validation;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
+using Heli.Scada.DalInterfaces;
+using Heli.Scada.BLInterfaces;
 
 namespace Heli.Scada.BL
 {
-    public class CustomerBL
+    public class CustomerBL: ICustomerBL
     {
         IRepository<CustomerModel> crepo;
         HelperFunctions hfunction;

@@ -7,6 +7,7 @@ using Heli.Scada.dal;
 using Heli.Scada.Entities;
 using Heli.Scada.BL;
 using Microsoft.Practices.Unity;
+using Heli.Scada.DalInterfaces;
 
 namespace DBHandler
 {

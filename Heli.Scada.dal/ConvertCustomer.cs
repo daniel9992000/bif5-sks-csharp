@@ -67,7 +67,7 @@ namespace Heli.Scada.dal
            Customer customer = null;
            try
            {
-               EngineerRepository erepo = new EngineerRepository();
+               EngineerRepository erepo = new EngineerRepository(new MesswerteEntities1());
                InstallationRepository irepo = new InstallationRepository();
                customer = new Customer();
                customer.customerid = incustomer.customerid;

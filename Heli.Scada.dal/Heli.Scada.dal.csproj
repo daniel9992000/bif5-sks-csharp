@@ -98,14 +98,10 @@
       <DependentUpon>DBMesswerte.tt</DependentUpon>
     </Compile>
     <Compile Include="EngineerRepository.cs" />
-    <Compile Include="IEngineerRepository.cs" />
-    <Compile Include="IInstallationRepository.cs" />
-    <Compile Include="IMeasurementRepository.cs" />
     <Compile Include="Installation.cs">
       <DependentUpon>DBMesswerte.tt</DependentUpon>
     </Compile>
     <Compile Include="InstallationRepository.cs" />
-    <Compile Include="IRepository.cs" />
     <Compile Include="Measurement.cs">
       <DependentUpon>DBMesswerte.tt</DependentUpon>
     </Compile>
@@ -141,6 +137,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Heli.Scada.DalInterfaces\Heli.Scada.DalInterfaces.csproj">
+      <Project>{9115ff08-75ad-4146-bdb0-680c0f1969f1}</Project>
+      <Name>Heli.Scada.DalInterfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Heli.Scada.Entities\Heli.Scada.Entities.csproj">
       <Project>{caac6784-edad-4054-81ed-fd87bc775620}</Project>
       <Name>Heli.Scada.Entities</Name>

@@ -7,12 +7,14 @@ using Heli.Scada.Entities;
 using Heli.Scada.dal;
 using log4net;
 using Heli.Scada.Exceptions;
+using Heli.Scada.DalInterfaces;
 using Microsoft.Practices.EnterpriseLibrary.Validation;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
+using Heli.Scada.BLInterfaces;
 
 namespace Heli.Scada.BL
 {
-    public class EngineerBL
+    public class EngineerBL: IEngineerBL
     {
         IRepository<CustomerModel> crepo;
         IEngineerRepository<EngineerModel> erepo;
