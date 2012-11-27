@@ -11,11 +11,10 @@ namespace Heli.Scada.dal
 {
     public static class ConvertInstallation
     {
-       static readonly ILog log = LogManager.GetLogger(typeof(ConvertEngineer));
+       static readonly ILog log = LogManager.GetLogger(typeof(ConvertInstallation));
 
        public static List<InstallationModel> ConvertToList(IQueryable<Installation> installationquery)
        {
-           log4net.Config.XmlConfigurator.Configure();
            List<InstallationModel> installationlist = null;
            try
            {
@@ -72,7 +71,7 @@ namespace Heli.Scada.dal
                installation.latitude = ininstallation.latitude;
                installation.longitude = ininstallation.longitude;
                installation.serialno = ininstallation.serialno;
-               installation.Customer = ConvertCustomer.ConverttoEntity(crepo.GetById(installation.customerid));
+               //installation.Customer = ConvertCustomer.ConverttoEntity(crepo.GetById(installation.customerid));
                foreach (var item in ininstallation.Measurement)
                {
                    installation.Measurement.Add(ConvertMeasurement.ConverttoEntity(mrepo.GetById(item)));

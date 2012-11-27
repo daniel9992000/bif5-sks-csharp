@@ -70,6 +70,7 @@
           <Property Name="timestamp" Type="datetime" Nullable="false" />
           <Property Name="installationid" Type="int" Nullable="false" />
           <Property Name="typeid" Type="int" Nullable="false" />
+          <Property Name="measurevalue" Type="decimal" Nullable="false" Scale="4" />
         </EntityType>
         <EntityType Name="Measurement_Type">
           <Key>
@@ -205,6 +206,7 @@
           <Property Name="typeid" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Installation" Relationship="MesswerteModel.Installation_Measurement" FromRole="Measurement" ToRole="Installation" />
           <NavigationProperty Name="Measurement_Type" Relationship="MesswerteModel.Measurement_Type_Measurement" FromRole="Measurement" ToRole="Measurement_Type" />
+          <Property Type="Decimal" Name="measurevalue" Nullable="false" Precision="18" Scale="4" />
         </EntityType>
         <EntityType Name="Measurement_Type">
           <Key>
@@ -311,6 +313,7 @@
           <EntitySetMapping Name="Measurement">
             <EntityTypeMapping TypeName="MesswerteModel.Measurement">
               <MappingFragment StoreEntitySet="Measurement">
+                <ScalarProperty Name="measurevalue" ColumnName="measurevalue" />
                 <ScalarProperty Name="measid" ColumnName="measid" />
                 <ScalarProperty Name="timestamp" ColumnName="timestamp" />
                 <ScalarProperty Name="installationid" ColumnName="installationid" />

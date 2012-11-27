@@ -16,7 +16,6 @@ namespace Heli.Scada.dal
        static readonly ILog log = LogManager.GetLogger(typeof(ConvertCustomer));
        public static List<CustomerModel> ConvertToList(IQueryable<Customer> customerquery)
        {
-           log4net.Config.XmlConfigurator.Configure();
            List<CustomerModel> customerlist = null;
            try
            {
@@ -67,7 +66,7 @@ namespace Heli.Scada.dal
            Customer customer = null;
            try
            {
-               EngineerRepository erepo = new EngineerRepository(new MesswerteEntities1());
+               EngineerRepository erepo = new EngineerRepository();
                InstallationRepository irepo = new InstallationRepository();
                customer = new Customer();
                customer.customerid = incustomer.customerid;

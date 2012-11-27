@@ -73,7 +73,8 @@
   <ItemGroup>
     <Compile Include="CustomerBL.cs" />
     <Compile Include="EngineerBL.cs" />
-    <Compile Include="HelperFunctions.cs" />
+    <Compile Include="RestServiceBL.cs" />
+    <Compile Include="StatisticService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

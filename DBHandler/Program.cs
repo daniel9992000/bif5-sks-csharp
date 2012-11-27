@@ -3,52 +3,68 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Heli.Scada.dal;
 using Heli.Scada.Entities;
-using Heli.Scada.BL;
+using log4net;
+using Heli.Scada.BLInterfaces;
+using System.Configuration;
 using Microsoft.Practices.Unity;
-using Heli.Scada.DalInterfaces;
+using Microsoft.Practices.Unity.Configuration;
 
 namespace DBHandler
 {
     class Program
     {
+
+        public static readonly ILog log = LogManager.GetLogger(typeof(Program));
+
         static void Main(string[] args)
         {
-          
-            EngineerRepository erepo = new EngineerRepository(new MesswerteEntities1());
-            CustomerRepository crepo = new CustomerRepository();
 
-            CustomerModel customer = new CustomerModel();
-            Engineer teste = new Engineer();
-         
-           
-            customer = crepo.GetById(2);
+            log4net.Config.XmlConfigurator.Configure();
 
-            UnityContainer hfcontainer = new UnityContainer();
-            hfcontainer.RegisterType<IInstallationRepository<InstallationModel>, InstallationRepository>();
-            hfcontainer.RegisterType<IMeasurementRepository<MeasurementModel>, MeasurementRepository>();
-            hfcontainer.RegisterType<IRepository<MeasurementTypeModel>, MeasurementTypeRepository>();
+            IUnityContainer container = new UnityContainer();
+            UnityConfigurationSection section = (UnityConfigurationSection)ConfigurationManager.GetSection("unity");
+            section.Configure(container);
+               
 
-            HelperFunctions hfunctions = hfcontainer.Resolve<HelperFunctions>();
+            IStatisticService sservice = container.Resolve<IStatisticService>();
 
-            UnityContainer cblcontainer = new UnityContainer();
-            cblcontainer.RegisterType<IRepository<CustomerModel>, CustomerRepository>();
-            cblcontainer.RegisterInstance<HelperFunctions>(hfunctions);
+            
 
-            CustomerBL cbl = cblcontainer.Resolve<CustomerBL>();
+            ICustomerBL cbl = container.Resolve<ICustomerBL>();
 
-            List<Statistic> slist = cbl.showMyCustomersStatistics(1, 0);
+            Dictionary<InstallationModel, List<Statistic>> slist = sservice.getStatisticPerYear(1, DateTime.Now);
             /*crepo.Delete(crepo.GetById(0));
             crepo.Save();
             erepo.Delete(erepo.GetById(0));
             erepo.Save();*/
-            
-            foreach (var item in crepo.GetAll())
+
+            Dictionary<InstallationModel, List<InstallationState>> ilist = sservice.getInstallationState(1);
+
+            foreach (var item in ilist)
             {
-                Console.WriteLine("Name: " +  item.username + " Email: " + item.email);
-                Console.WriteLine("Listenlänge: "  + slist.Count);
+                Console.WriteLine("Installation: " + item.Key.installationid);
+                foreach (var states in item.Value)
+                {
+                    Console.WriteLine("lastvalue: " + states.lastValue);
+                    Console.WriteLine("currentTime: " + states.currentTime);
+                    Console.WriteLine("unit: " + states.unit);
+                    Console.WriteLine("description: " + states.description);
+                }
             }
+
+           /* foreach (var item in slist)
+            {
+                Console.WriteLine("Installation: "  + item.Key.installationid);
+                foreach (var stats in item.Value)
+                {
+                    Console.WriteLine("average: " + stats.average );
+                    Console.WriteLine("minvalue: " + stats.minvalue);
+                    Console.WriteLine("maxvalue: " + stats.maxvalue);
+                    Console.WriteLine("unit: " + stats.unit);
+                    Console.WriteLine("description: " + stats.description);
+                }
+            }*/
             Console.ReadLine();
         }
     }

@@ -9,7 +9,9 @@ namespace Heli.Scada.BLInterfaces
 {
     public interface ICustomerBL
     {
-        List<Installationstate> showMyCustomersInstallationState(int customerid);
-        List<Statistic> showMyCustomersStatistics(int customerid, int option);
+        void createCustomer(CustomerModel customer);
+        CustomerModel getCustomer(int id);
+        List<InstallationModel> getInstallations(CustomerModel customer);
+     
     }
 }

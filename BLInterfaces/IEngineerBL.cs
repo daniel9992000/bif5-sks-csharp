@@ -10,7 +10,6 @@ namespace Heli.Scada.BLInterfaces
     public interface IEngineerBL
     {
         void createCustomer(CustomerModel customer, InstallationModel installation);
-        Dictionary<CustomerModel, List<Installationstate>> showMyCustomersInstallationState(int engineerid);
         List<CustomerModel> showMyCustomers(int engineerid);
     }
 }

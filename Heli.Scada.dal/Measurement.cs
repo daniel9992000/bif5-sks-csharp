@@ -18,6 +18,7 @@ namespace Heli.Scada.dal
         public System.DateTime timestamp { get; set; }
         public int installationid { get; set; }
         public int typeid { get; set; }
+        public decimal measurevalue { get; set; }
     
         public virtual Installation Installation { get; set; }
         public virtual Measurement_Type Measurement_Type { get; set; }

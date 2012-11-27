@@ -15,7 +15,6 @@ namespace Heli.Scada.dal
      
         public static List<EngineerModel> ConvertToList(IQueryable<Engineer> engineerquery)
         {
-            log4net.Config.XmlConfigurator.Configure();
             List<EngineerModel> engineerlist = null;
             try
             {
@@ -61,8 +60,7 @@ namespace Heli.Scada.dal
             Engineer engineer = null;
             try
             {
-                EngineerRepository erepo = new EngineerRepository(new MesswerteEntities1());
-                InstallationRepository irepo = new InstallationRepository();
+                EngineerRepository erepo = new EngineerRepository();
                 engineer = new Engineer();
                 engineer.firstname = inengineer.firstname;
                 engineer.lastname = inengineer.lastname;

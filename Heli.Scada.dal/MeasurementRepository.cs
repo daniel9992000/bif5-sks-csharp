@@ -17,7 +17,6 @@ namespace Heli.Scada.dal
 
         public List<MeasurementModel> GetAll()
         {
-            log4net.Config.XmlConfigurator.Configure();
             List<MeasurementModel> mlist = null;
             try
             {
@@ -105,67 +104,175 @@ namespace Heli.Scada.dal
             return measurement ;
         }
 
-        public List<MeasurementModel> GetValuesPerDay(DateTime date)
+       
+
+        public List<InstallationState> getCurrentValues(InstallationModel installation)
         {
-            List<MeasurementModel> mlist = null;
-            int comparedate = DateTime.Now.DayOfYear;
-            int indate = date.DayOfYear;
+            List<InstallationState> ilist = new List<InstallationState>();
             try
             {
-                IQueryable<Measurement> query = from result in context.Measurement
-                                                where comparedate == indate
-                                                select result;
-                mlist = ConvertMeasurement.ConvertToList(query);
-                log.Info("ValuesPerDay wurden geladen.");
+               
+                var query = (from meas in context.Measurement
+                             join mtype in context.Measurement_Type
+                             on meas.typeid equals mtype.typeid
+                             where meas.installationid == installation.installationid
+                             group mtype by new { meas.typeid, meas.measurevalue, mtype.unit, mtype.description, meas.timestamp } into hilf
+                             where hilf.Key.timestamp == (from mesl in context.Measurement where mesl.typeid == hilf.Key.typeid select mesl.timestamp).Max()
+                             select new
+                             {
+                                 lastValue = hilf.Key.measurevalue,
+                                 description = hilf.Key.description,
+                                 unit = hilf.Key.unit,
+                                 currentTime = hilf.Key.timestamp
+                             });
+                
+                foreach (var item in query)
+                {
+                    InstallationState istate = new InstallationState();
+                    istate.currentTime = item.currentTime;
+                    istate.description = item.description;
+                    istate.lastValue = Double.Parse(item.lastValue.ToString());
+                    istate.unit = item.unit;
+                    ilist.Add(istate);
+                }
+
+            }
+            catch (Exception exp)
+            {
+                log.Error("InstallationState für Installation " + installation.installationid + " wurde erstellt.");
+                throw new DalException("InstallationState für Installation " + installation.installationid + " wurde erstellt.", exp);
+            }
+            return ilist;
+        }
+
+        public List<Statistic> getPerDay(InstallationModel installation, DateTime date)
+        {
+
+            List<Statistic> slist = new List<Statistic>();
+            try
+            {
+              
+                DateTime datemin = date.AddDays(-1);
+                DateTime datemax = date.AddDays(1);
+                var query = (from meas in context.Measurement
+                                         join mtype in context.Measurement_Type
+                                         on meas.typeid equals mtype.typeid
+                                         where meas.installationid == installation.installationid && meas.timestamp < datemax && meas.timestamp > datemin
+                                         group mtype by new { meas.typeid, meas.measurevalue, mtype.unit, mtype.description } into hilf
+                                         select new
+                                         {
+                                             maxvalue = hilf.Max(m => hilf.Key.measurevalue),
+                                             minvalue = hilf.Min(m => hilf.Key.measurevalue),
+                                             averagevalue = hilf.Average(m => hilf.Key.measurevalue),
+                                             unit = hilf.Key.unit,
+                                             description = hilf.Key.description
+                                         });
+               
+                foreach (var item in query)
+                {
+                    Statistic tmp = new Statistic();
+                    tmp.average = Double.Parse(item.averagevalue.ToString());
+                    tmp.description = item.description;
+                    tmp.maxvalue = Double.Parse(item.maxvalue.ToString());
+                    tmp.minvalue = Double.Parse(item.minvalue.ToString());
+                    tmp.unit = item.unit;
+                    slist.Add(tmp);
+                }
+                log.Info("StatisticPerDay für Installation " + installation.installationid + " wurde erstellt");
+                           
             }
             catch (Exception exp)
             {
                 log.Error("ValuesPerDay konnten nicht geladen werden.");
                 throw new DalException("ValuesPerDay konnten nicht geladen werden.", exp);
             }
-            return mlist;
+            return slist;
         }
 
-        public List<MeasurementModel> GetValuesPerMonth(DateTime date)
+        public List<Statistic> getPerMonth(InstallationModel installation, DateTime date)
         {
-            List<MeasurementModel> mlist = null;
-            int comparedate = DateTime.Now.Month;
-            int indate = date.Month;
+            List<Statistic> slist = new List<Statistic>();
             try
             {
-                IQueryable<Measurement> query = from result in context.Measurement
-                                                where comparedate == indate
-                                                select result;
-                mlist = ConvertMeasurement.ConvertToList(query);
-                log.Info("ValuesPerMonth wurden geladen.");
+
+                DateTime datemin = date.AddMonths(-1);
+                DateTime datemax = date.AddMonths(1);
+                var query = (from meas in context.Measurement
+                             join mtype in context.Measurement_Type
+                             on meas.typeid equals mtype.typeid
+                             where meas.installationid == installation.installationid && meas.timestamp < datemax && meas.timestamp > datemin
+                             group mtype by new { meas.typeid, meas.measurevalue, mtype.unit, mtype.description } into hilf
+                             select new
+                             {
+                                 maxvalue = hilf.Max(m => hilf.Key.measurevalue),
+                                 minvalue = hilf.Min(m => hilf.Key.measurevalue),
+                                 averagevalue = hilf.Average(m => hilf.Key.measurevalue),
+                                 unit = hilf.Key.unit,
+                                 description = hilf.Key.description
+                             });
+
+                foreach (var item in query)
+                {
+                    Statistic tmp = new Statistic();
+                    tmp.average = Double.Parse(item.averagevalue.ToString());
+                    tmp.description = item.description;
+                    tmp.maxvalue = Double.Parse(item.maxvalue.ToString());
+                    tmp.minvalue = Double.Parse(item.minvalue.ToString());
+                    tmp.unit = item.unit;
+                    slist.Add(tmp);
+                }
+                log.Info("StatisticPerMonth für Installation " + installation.installationid + " wurde erstellt");
+
             }
             catch (Exception exp)
             {
-                log.Error("ValuesPerMonth konnten nicht geladen werden");
+                log.Error("ValuesPerMonth konnten nicht geladen werden.");
                 throw new DalException("ValuesPerMonth konnten nicht geladen werden.", exp);
             }
-            return mlist;
+            return slist;
         }
 
-        public List<MeasurementModel> GetValuesPerYear(DateTime date)
+        public List<Statistic> getPerYear(InstallationModel installation, DateTime date)
         {
-            List<MeasurementModel> mlist = null;
-            int comparedate = DateTime.Now.Year;
-            int indate = date.Year;
+            List<Statistic> slist = new List<Statistic>();
             try
             {
-                IQueryable<Measurement> query = from result in context.Measurement
-                                                where comparedate == indate
-                                                select result;
-                mlist = ConvertMeasurement.ConvertToList(query);
-                log.Info("ValuesPerYear wurden geladen.");
+
+                DateTime datemin = date.AddYears(-1);
+                DateTime datemax = date.AddYears(1);
+                var query = (from meas in context.Measurement
+                             join mtype in context.Measurement_Type
+                             on meas.typeid equals mtype.typeid
+                             where meas.installationid == installation.installationid && meas.timestamp < datemax && meas.timestamp > datemin
+                             group mtype by new { meas.typeid, meas.measurevalue, mtype.unit, mtype.description } into hilf
+                             select new
+                             {
+                                 maxvalue = hilf.Max(m => hilf.Key.measurevalue),
+                                 minvalue = hilf.Min(m => hilf.Key.measurevalue),
+                                 averagevalue = hilf.Average(m => hilf.Key.measurevalue),
+                                 unit = hilf.Key.unit,
+                                 description = hilf.Key.description
+                             });
+
+                foreach (var item in query)
+                {
+                    Statistic tmp = new Statistic();
+                    tmp.average = Double.Parse(item.averagevalue.ToString());
+                    tmp.description = item.description;
+                    tmp.maxvalue = Double.Parse(item.maxvalue.ToString());
+                    tmp.minvalue = Double.Parse(item.minvalue.ToString());
+                    tmp.unit = item.unit;
+                    slist.Add(tmp);
+                }
+                log.Info("StatisticPerYear für Installation " + installation.installationid + " wurde erstellt");
+
             }
             catch (Exception exp)
             {
                 log.Error("ValuesPerYear konnten nicht geladen werden.");
                 throw new DalException("ValuesPerYear konnten nicht geladen werden.", exp);
             }
-            return mlist;
+            return slist;
         }
     }
 }

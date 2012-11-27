@@ -1,0 +1,24 @@
+INFO 2012-11-27 09:44:35 – Installation wurde konvertiert.
+INFO 2012-11-27 09:44:35 – Installation wurde konvertiert.
+INFO 2012-11-27 09:44:35 – InstallationQuery wurde konvertiert.
+INFO 2012-11-27 09:44:35 – Installations von Customer wurden geladen.
+INFO 2012-11-27 09:44:35 – StatisticPerYear für Installation 0 wurde erstellt
+INFO 2012-11-27 09:44:35 – StatisticPerYear für Installation 2 wurde erstellt
+INFO 2012-11-27 09:44:35 – Statistik für Kunden 1 wurde erstellt.
+INFO 2012-11-27 09:44:35 – Installation wurde konvertiert.
+INFO 2012-11-27 09:44:35 – Installation wurde konvertiert.
+INFO 2012-11-27 09:44:35 – InstallationQuery wurde konvertiert.
+INFO 2012-11-27 09:44:35 – Installations von Customer wurden geladen.
+INFO 2012-11-27 09:44:35 – InstallationState für Kunden 1 wurde erstellt.
+INFO 2012-11-27 01:11:21 – Installation wurde konvertiert.
+INFO 2012-11-27 01:11:21 – Installation wurde konvertiert.
+INFO 2012-11-27 01:11:21 – InstallationQuery wurde konvertiert.
+INFO 2012-11-27 01:11:21 – Installations von Customer wurden geladen.
+INFO 2012-11-27 01:11:21 – StatisticPerYear für Installation 0 wurde erstellt
+INFO 2012-11-27 01:11:21 – StatisticPerYear für Installation 2 wurde erstellt
+INFO 2012-11-27 01:11:21 – Statistik für Kunden 1 wurde erstellt.
+INFO 2012-11-27 01:11:21 – Installation wurde konvertiert.
+INFO 2012-11-27 01:11:21 – Installation wurde konvertiert.
+INFO 2012-11-27 01:11:21 – InstallationQuery wurde konvertiert.
+INFO 2012-11-27 01:11:21 – Installations von Customer wurden geladen.
+INFO 2012-11-27 01:11:21 – InstallationState für Kunden 1 wurde erstellt.

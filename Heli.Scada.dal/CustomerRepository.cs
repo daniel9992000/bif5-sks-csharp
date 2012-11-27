@@ -10,7 +10,7 @@ using Heli.Scada.DalInterfaces;
 
 namespace Heli.Scada.dal
 {
-    public class CustomerRepository : IRepository<CustomerModel>
+    public class CustomerRepository : ICustomerRepository<CustomerModel>
     {
         static readonly ILog log = LogManager.GetLogger(typeof(CustomerRepository));
 
@@ -18,7 +18,6 @@ namespace Heli.Scada.dal
 
         public List<CustomerModel> GetAll()
         {
-            log4net.Config.XmlConfigurator.Configure();
             List<CustomerModel> clist = null;
             try
             {

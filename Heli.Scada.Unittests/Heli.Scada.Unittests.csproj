@@ -63,9 +63,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="EngineerBLTest.cs" />
+    <Compile Include="MockMeasurementRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CustomerBLTest.cs" />
-    <Compile Include="TestHelperFunction.cs" />
+    <Compile Include="StatisticServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

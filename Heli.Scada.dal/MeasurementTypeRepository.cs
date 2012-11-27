@@ -10,14 +10,13 @@ using Heli.Scada.DalInterfaces;
 
 namespace Heli.Scada.dal
 {
-    public class MeasurementTypeRepository:IRepository<MeasurementTypeModel>
+    public class MeasurementTypeRepository:IMeasurementTypeRepository<MeasurementTypeModel>
     {
         private MesswerteEntities1 context = new MesswerteEntities1();
         static readonly ILog log = LogManager.GetLogger(typeof(MeasurementTypeRepository));
 
         public List<MeasurementTypeModel> GetAll()
         {
-            log4net.Config.XmlConfigurator.Configure();
             List<MeasurementTypeModel> mtlist = null;
             try
             {

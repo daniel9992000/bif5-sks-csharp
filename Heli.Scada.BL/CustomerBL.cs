@@ -16,72 +16,86 @@ using Heli.Scada.BLInterfaces;
 
 namespace Heli.Scada.BL
 {
-    public class CustomerBL: ICustomerBL
+    public class CustomerBL : ICustomerBL
     {
-        IRepository<CustomerModel> crepo;
-        HelperFunctions hfunction;
+        ICustomerRepository<CustomerModel> crepo;
+        IInstallationRepository<InstallationModel> irepo;
 
         public static readonly ILog log = LogManager.GetLogger(typeof(CustomerBL));
 
-        public CustomerBL(IRepository<CustomerModel> crepo, HelperFunctions hfunction)
+        public CustomerBL(ICustomerRepository<CustomerModel> crepo, IInstallationRepository<InstallationModel> irepo)
         {
             this.crepo = crepo;
-            this.hfunction = hfunction;
-            log4net.Config.XmlConfigurator.Configure();
+            this.irepo = irepo;
         }
 
-        public List<Installationstate> showMyCustomersInstallationState(int customerid)
-        {         
-            List<Installationstate> ilist = null;
-            try
-            {
-                Validator<int> cidvalidator = new RangeValidator<int>(0,Int32.MaxValue);
-                ValidationResults vresult = cidvalidator.Validate(customerid);
-                if (!vresult.IsValid)
-                {
-                    log.Warn("Customerid muss positiv sein.");
-                    throw new BLException("Customerid muss positiv sein.");
-                }
-                ilist= new List<Installationstate>();
-                ilist = hfunction.getInstallationState(crepo.GetById(customerid));
-                log.Info("Anlagenzustände der Kunden wurden abgerufen");
-            }
-            catch (DalException exp)
-            {
-                log.Error("Anlagenzustände der Kunden konnten nicht geladen werden.");
-                throw new BLException("Anlagenzustände der Kunden konnten nicht abgerufen werden.", exp);
-            }
-           
-            return ilist;
-        }
-
-        public List<Statistic> showMyCustomersStatistics(int customerid, int option)
+        public void createCustomer(CustomerModel customer) 
         {
-            List<Statistic> slist = null;
-            Validator<int> cidvalidator = new RangeValidator<int>(0,RangeBoundaryType.Inclusive, Int32.MaxValue, RangeBoundaryType.Exclusive, "Customerid muss positiv sein.");
-            Validator<int> optvalidator = new RangeValidator<int>(0,RangeBoundaryType.Inclusive, 2, RangeBoundaryType.Inclusive, "Option muss 0-2 sein!" );
-            ValidationResults vresult = cidvalidator.Validate(customerid);
-            vresult.AddAllResults(optvalidator.Validate(option));
-            if (!vresult.IsValid)
-            {
-                foreach (var item in vresult)
-                {
-                    log.Warn(item.Message);
-                    throw new BLException(item.Message);
-                }
-            }
             try
             {
-                slist = new List<Statistic>();
-                slist = hfunction.getStatistics(crepo.GetById(customerid), option);
-                log.Info("Statistiken der Kunden wurden abgerufen");
+                ValidationResults vresult = Validation.ValidateFromAttributes<CustomerModel>(customer);          
+                if (vresult.IsValid)
+                {
+                    crepo.Add(customer);
+                    crepo.Save();
+                    log.Info("Customer saved");
+                }
+                else
+                {
+                    log.Warn(vresult.Count + "Validation errors");
+                    StringBuilder sb = null;
+                    foreach (var error in vresult)
+                    {
+                        sb = new StringBuilder();
+                        sb.Append("Error on property ");
+                        sb.Append(error.Target);
+                        sb.Append(": ");
+                        sb.Append(error.Message);
+                    }
+                    log.Warn(sb);
+                }
             }
-            catch (DalException exp)
+            catch(DalException exp)
             {
-                log.Error("Statistiken der Kunden konnten nicht abgerufen werden.");
-                throw new BLException("Statistiken der Kunden konnten nicht abgerufen werden.", exp);
+                log.Error("cannot save customer!", exp);
+                throw new BLException("cannot save customer!", exp);
             }
-            return slist;
         }
+    
+        public CustomerModel getCustomer(int id) 
+        {
+            CustomerModel tmp;
+            try
+            {
+                log.Info("Fetching customer id" +  id);
+                tmp = crepo.GetById(id);
+          
+            }
+            catch(DalException err)
+            {
+                log.Warn("Cannot fetch customer id " + id, err);
+                throw new BLException("Cannot fetch customer", err);
+            }
+            return tmp;
+        }
+    
+        public List<InstallationModel> getInstallations(CustomerModel customer) 
+        {
+            List<InstallationModel> tmp;
+            try
+            {
+                log.Info("Fetching Installation from customer id" + customer.customerid);
+                tmp = irepo.GetByCustomerId(customer.customerid);
+            }
+            catch(DalException exp)
+            {
+                log.Error("Cannot fetch Installations from customer id " + customer.customerid, exp);
+                throw new BLException("Cannot fetch Installations from customer id " + customer.customerid, exp);
+            }
+            return tmp;
+        
+        }
+
+      
     }
 }

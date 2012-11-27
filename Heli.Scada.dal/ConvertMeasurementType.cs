@@ -15,7 +15,6 @@ namespace Heli.Scada.dal
 
         public static List<MeasurementTypeModel> ConvertToList(IQueryable<Measurement_Type> measurementquery)
         {
-            log4net.Config.XmlConfigurator.Configure();
             List<MeasurementTypeModel> measurementlist = null;
             try
             {
@@ -64,17 +63,12 @@ namespace Heli.Scada.dal
             Measurement_Type measurementtype = null;
             try
             {
-                MeasurementRepository mrepo = new MeasurementRepository();
                 measurementtype = new Measurement_Type();
                 measurementtype.typeid = inmeasurementtype.typeid;
                 measurementtype.maxvalue = inmeasurementtype.maxvalue;
                 measurementtype.minvalue = inmeasurementtype.minvalue;
                 measurementtype.description = inmeasurementtype.description;
                 measurementtype.unit = inmeasurementtype.unit;
-                foreach (var item in inmeasurementtype.Measurement)
-                {
-                    measurementtype.Measurement.Add(ConvertMeasurement.ConverttoEntity(mrepo.GetById(item)));
-                }
                 log.Info("MeasurementTypeModel wurde konvertiert.");
             }
             catch (Exception exp)

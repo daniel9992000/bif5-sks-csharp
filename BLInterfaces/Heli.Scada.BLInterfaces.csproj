@@ -7,8 +7,8 @@
     <ProjectGuid>{AC429C89-6FFE-42B8-A518-751184008361}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BLInterfaces</RootNamespace>
-    <AssemblyName>BLInterfaces</AssemblyName>
+    <RootNamespace>Heli.Scada.BLInterfaces</RootNamespace>
+    <AssemblyName>Heli.Scada.BLInterfaces</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,7 +41,8 @@
   <ItemGroup>
     <Compile Include="ICustomerBL.cs" />
     <Compile Include="IEngineerBL.cs" />
-    <Compile Include="IHelperfunctions.cs" />
+    <Compile Include="IRestServiceBL.cs" />
+    <Compile Include="IStatisticService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,9 +7,8 @@ using Heli.Scada.Entities;
 
 namespace Heli.Scada.BLInterfaces
 {
-    public interface IHelperfunctions
+    public interface IRestServiceBL
     {
-        List<Statistic> getStatistics(CustomerModel customer, int option);
-        List<Installationstate> getInstallationState(CustomerModel customer);
+        void createMeasurement(MeasurementModel measurement);
     }
 }

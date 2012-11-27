@@ -15,7 +15,6 @@ namespace Heli.Scada.dal
 
         public static List<MeasurementModel> ConvertToList(IQueryable<Measurement> measurementquery)
         {
-            log4net.Config.XmlConfigurator.Configure();
             List<MeasurementModel> measurementlist = null;
             try
             {
@@ -44,6 +43,7 @@ namespace Heli.Scada.dal
                 measurement.timestamp = DateTime.Parse(inmeasurement.timestamp.ToString());
                 measurement.typeid = inmeasurement.typeid;
                 measurement.installationid = inmeasurement.installationid;
+                measurement.measurevalue = inmeasurement.measurevalue;
                 log.Info("Measurement wurde konvertiert.");
             }
             catch (Exception exp)
@@ -59,15 +59,16 @@ namespace Heli.Scada.dal
             Measurement measurement;
             try
             {
-                MeasurementTypeRepository mrepo = new MeasurementTypeRepository();
-                InstallationRepository irepo = new InstallationRepository();
+                MeasurementTypeRepository mtrepo = new MeasurementTypeRepository();
+                //InstallationRepository irepo = new InstallationRepository();
                 measurement = new Measurement();
                 measurement.measid = inmeasurement.measid;
-                measurement.timestamp = measurement.timestamp;
+                measurement.timestamp = inmeasurement.timestamp;
                 measurement.typeid = inmeasurement.typeid;
                 measurement.installationid = inmeasurement.installationid;
-                measurement.Measurement_Type = ConvertMeasurementType.ConverttoEntity(mrepo.GetById(measurement.typeid));
-                measurement.Installation = ConvertInstallation.ConverttoEntity(irepo.GetById(measurement.installationid));
+                measurement.measurevalue = inmeasurement.measurevalue;
+                //measurement.Measurement_Type = ConvertMeasurementType.ConverttoEntity(mtrepo.GetById(measurement.typeid));
+                //measurement.Installation = ConvertInstallation.ConverttoEntity(irepo.GetById(measurement.installationid));
                 log.Info("MeasurementModel wurde konvertiert.");
             }
             catch (Exception exp)

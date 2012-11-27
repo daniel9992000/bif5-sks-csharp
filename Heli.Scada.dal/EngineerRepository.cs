@@ -13,17 +13,11 @@ namespace Heli.Scada.dal
 {
     public class EngineerRepository:IEngineerRepository<EngineerModel>
     {
-        private MesswerteEntities1 context;
+        private MesswerteEntities1 context = new MesswerteEntities1();
         static readonly ILog log = LogManager.GetLogger(typeof(EngineerRepository));
-
-        public EngineerRepository(MesswerteEntities1 context)
-        {
-            this.context = context;
-        }
 
         public List<EngineerModel> GetAll()
         {
-            log4net.Config.XmlConfigurator.Configure();
             List<EngineerModel> elist = null;
             try
             {

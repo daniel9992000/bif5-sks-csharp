@@ -17,6 +17,8 @@ namespace Heli.Scada.Entities
         [NotNullValidator(MessageTemplate="Installation must not be null")]
         public int installationid { get; set; }
         [NotNullValidator(MessageTemplate = "Typeid must not be null")]
-        public int typeid { get; set; } 
+        public int typeid { get; set; }
+        [NotNullValidator(MessageTemplate = "MeasureValue must not be null")]
+        public decimal measurevalue { get; set; } 
     }
 }

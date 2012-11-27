@@ -17,7 +17,7 @@ namespace Heli.Scada.dal
 
         public List<InstallationModel> GetAll()
         {
-            log4net.Config.XmlConfigurator.Configure();
+
             List<InstallationModel> ilist = null;
             try
             {
