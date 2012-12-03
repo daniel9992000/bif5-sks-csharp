@@ -28,17 +28,47 @@ namespace Heli.Scada.BL
             this.irepo = irepo;
         }
 
-        public void createCustomer(CustomerModel customer, InstallationModel installation)
+        public void createCustomer(CustomerModel customer)
         {
             try
             {
                 ValidationResults vresult = Validation.ValidateFromAttributes<CustomerModel>(customer);
-                vresult.AddAllResults(Validation.ValidateFromAttributes<InstallationModel>(installation));
                 if (vresult.IsValid)
                 {
                     crepo.Add(customer);
                     crepo.Save();
                     log.Info("Customer saved.");
+                }
+                else
+                {
+                    log.Warn(vresult.Count + "Validation errors");
+                    StringBuilder sb = null;
+                    foreach (var error in vresult)
+                    {
+                        sb = new StringBuilder();
+                        sb.Append("Error on property ");
+                        sb.Append(error.Target);
+                        sb.Append(": ");
+                        sb.Append(error.Message);
+                    }
+                    log.Warn(sb);
+                }
+            }
+            catch (DalException exp)
+            {
+                log.Error("Customer konnte nicht gespeichert werden.");
+                throw new BLException("Customer konnte nicht gespeichert werden.", exp);
+            }
+        }
+
+        public void createInstallation(InstallationModel installation)
+        {
+            try
+            {
+                ValidationResults vresult = Validation.ValidateFromAttributes<InstallationModel>(installation);
+      
+                if (vresult.IsValid)
+                {
                     irepo.Add(installation);
                     irepo.Save();
                     log.Info("Installation saved.");
@@ -60,12 +90,10 @@ namespace Heli.Scada.BL
             }
             catch (DalException exp)
             {
-                log.Error("Customer bzw. Installation konnte nicht gespeichert werden.");
-                throw new BLException("Customer bzw. Installation konnte nicht gespeichert werden.", exp);
+                log.Error("Installation konnte nicht gespeichert werden.");
+                throw new BLException("Installation konnte nicht gespeichert werden.", exp);
             }
         }
-
-       
         public List<CustomerModel> showMyCustomers(int engineerid)
         {
             List<CustomerModel> clist = null;

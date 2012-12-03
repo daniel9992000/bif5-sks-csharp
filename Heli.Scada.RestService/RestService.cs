@@ -10,12 +10,15 @@ using Heli.Scada.BLInterfaces;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using System.Configuration;
+using log4net;
 
 namespace Heli.Scada.RestService
 {
    
     public class RestService : IRestService
     {
+        public static readonly ILog log = LogManager.GetLogger(typeof(RestService));
+
         public void CreateMeasurement(string installationid, MeasuredValue measvalue)
         {
             try
@@ -36,8 +39,8 @@ namespace Heli.Scada.RestService
             
             catch (Exception exp)
             {
-                
-                throw new Exception("Fehler im Restservice", exp);
+                log.Error("Measurement via Rest konnte nicht gespeichert werden.");
+                throw new Exception("Measurement via Rest konnte nicht gespeichert werden.", exp);
             }
         }       
     }

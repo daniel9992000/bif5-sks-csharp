@@ -22,3 +22,117 @@ INFO 2012-11-27 01:11:21 – Installation wurde konvertiert.
 INFO 2012-11-27 01:11:21 – InstallationQuery wurde konvertiert.
 INFO 2012-11-27 01:11:21 – Installations von Customer wurden geladen.
 INFO 2012-11-27 01:11:21 – InstallationState für Kunden 1 wurde erstellt.
+INFO 2012-12-03 02:30:57 – Installation wurde konvertiert.
+INFO 2012-12-03 02:30:57 – Installation wurde konvertiert.
+INFO 2012-12-03 02:30:57 – InstallationQuery wurde konvertiert.
+INFO 2012-12-03 02:30:57 – Installations von Customer wurden geladen.
+INFO 2012-12-03 02:30:57 – StatisticPerYear für Installation 0 wurde erstellt
+INFO 2012-12-03 02:30:57 – StatisticPerYear für Installation 2 wurde erstellt
+INFO 2012-12-03 02:30:57 – Statistik für Kunden 1 wurde erstellt.
+INFO 2012-12-03 02:30:57 – Installation wurde konvertiert.
+INFO 2012-12-03 02:30:57 – Installation wurde konvertiert.
+INFO 2012-12-03 02:30:57 – InstallationQuery wurde konvertiert.
+INFO 2012-12-03 02:30:57 – Installations von Customer wurden geladen.
+INFO 2012-12-03 02:30:57 – InstallationState für Kunden 1 wurde erstellt.
+ERROR2012-12-03 02:57:49 – Engineer konnte nicht konvertiert werden.
+ERROR2012-12-03 02:57:49 – Engineer konnte nicht geladen werden.
+ERROR2012-12-03 02:57:49 – CustomerModel konnte nicht konvertiert werden.
+ERROR2012-12-03 02:57:49 – Customer konnte nicht gespeichert werden.
+ERROR2012-12-03 02:57:49 – Customer konnte nicht gespeichert werden.
+ERROR2012-12-03 02:57:49 – Customer via Soap konnte nicht gespeichert werden.
+INFO 2012-12-03 02:59:32 – Engineer wurde konvertiert.
+INFO 2012-12-03 02:59:32 – Engineer wurde geladen.
+INFO 2012-12-03 02:59:32 – EngineerModel wurde konvertiert.
+INFO 2012-12-03 02:59:32 – CustomerModel wurde konvertiert.
+INFO 2012-12-03 02:59:32 – Customer wurde gespeichert.
+INFO 2012-12-03 02:59:32 – CustomerRepo wurde gespeichert.
+INFO 2012-12-03 02:59:32 – Customer saved.
+INFO 2012-12-03 03:02:31 – InstallationModel wurde konvertiert.
+INFO 2012-12-03 03:02:31 – Installation wurde gespeichert.
+ERROR2012-12-03 03:02:31 – InstallationRepo konnte nicht gespeichert werden.
+ERROR2012-12-03 03:02:31 – Installation konnte nicht gespeichert werden.
+ERROR2012-12-03 03:02:32 – Installation via Soap konnte nicht gespeichert werden.
+INFO 2012-12-03 03:25:20 – Engineer wurde konvertiert.
+INFO 2012-12-03 03:25:20 – Engineer wurde geladen.
+INFO 2012-12-03 03:25:20 – EngineerModel wurde konvertiert.
+INFO 2012-12-03 03:25:20 – CustomerModel wurde konvertiert.
+INFO 2012-12-03 03:25:20 – Customer wurde gespeichert.
+INFO 2012-12-03 03:25:20 – CustomerRepo wurde gespeichert.
+INFO 2012-12-03 03:25:20 – Customer saved.
+INFO 2012-12-03 03:26:03 – Engineer wurde konvertiert.
+INFO 2012-12-03 03:26:03 – Engineer wurde geladen.
+INFO 2012-12-03 03:26:03 – EngineerModel wurde konvertiert.
+INFO 2012-12-03 03:26:03 – CustomerModel wurde konvertiert.
+INFO 2012-12-03 03:26:03 – Customer wurde gespeichert.
+INFO 2012-12-03 03:26:04 – CustomerRepo wurde gespeichert.
+INFO 2012-12-03 03:26:04 – Customer saved.
+INFO 2012-12-03 03:26:39 – InstallationModel wurde konvertiert.
+INFO 2012-12-03 03:26:39 – Installation wurde gespeichert.
+INFO 2012-12-03 03:29:20 – Installation wurde konvertiert.
+INFO 2012-12-03 03:29:20 – Installation wurde konvertiert.
+INFO 2012-12-03 03:29:20 – InstallationQuery wurde konvertiert.
+INFO 2012-12-03 03:29:20 – Installations von Customer wurden geladen.
+INFO 2012-12-03 03:29:20 – StatisticPerYear für Installation 0 wurde erstellt
+INFO 2012-12-03 03:29:20 – StatisticPerYear für Installation 2 wurde erstellt
+INFO 2012-12-03 03:29:20 – Statistik für Kunden 1 wurde erstellt.
+INFO 2012-12-03 03:29:20 – Installation wurde konvertiert.
+INFO 2012-12-03 03:29:20 – Installation wurde konvertiert.
+INFO 2012-12-03 03:29:20 – InstallationQuery wurde konvertiert.
+INFO 2012-12-03 03:29:20 – Installations von Customer wurden geladen.
+INFO 2012-12-03 03:29:20 – InstallationState für Kunden 1 wurde erstellt.
+INFO 2012-12-03 03:33:07 – Installation wurde konvertiert.
+INFO 2012-12-03 03:33:07 – Installation wurde konvertiert.
+INFO 2012-12-03 03:33:07 – InstallationQuery wurde konvertiert.
+INFO 2012-12-03 03:33:07 – Installations von Customer wurden geladen.
+INFO 2012-12-03 03:33:07 – StatisticPerYear für Installation 0 wurde erstellt
+INFO 2012-12-03 03:33:07 – StatisticPerYear für Installation 2 wurde erstellt
+INFO 2012-12-03 03:33:07 – Statistik für Kunden 1 wurde erstellt.
+INFO 2012-12-03 03:33:07 – Installation wurde konvertiert.
+INFO 2012-12-03 03:33:07 – Installation wurde konvertiert.
+INFO 2012-12-03 03:33:07 – InstallationQuery wurde konvertiert.
+INFO 2012-12-03 03:33:07 – Installations von Customer wurden geladen.
+INFO 2012-12-03 03:33:07 – InstallationState für Kunden 1 wurde erstellt.
+INFO 2012-12-03 03:33:08 – InstallationModel wurde konvertiert.
+INFO 2012-12-03 03:33:08 – Installation wurde gespeichert.
+ERROR2012-12-03 03:33:08 – InstallationRepo konnte nicht gespeichert werden.
+ERROR2012-12-03 03:33:08 – Installation konnte nicht gespeichert werden.
+INFO 2012-12-03 03:36:13 – Installation wurde konvertiert.
+INFO 2012-12-03 03:36:13 – Installation wurde konvertiert.
+INFO 2012-12-03 03:36:13 – InstallationQuery wurde konvertiert.
+INFO 2012-12-03 03:36:13 – Installations von Customer wurden geladen.
+INFO 2012-12-03 03:36:13 – StatisticPerYear für Installation 0 wurde erstellt
+INFO 2012-12-03 03:36:13 – StatisticPerYear für Installation 2 wurde erstellt
+INFO 2012-12-03 03:36:13 – Statistik für Kunden 1 wurde erstellt.
+INFO 2012-12-03 03:36:13 – Installation wurde konvertiert.
+INFO 2012-12-03 03:36:13 – Installation wurde konvertiert.
+INFO 2012-12-03 03:36:13 – InstallationQuery wurde konvertiert.
+INFO 2012-12-03 03:36:13 – Installations von Customer wurden geladen.
+INFO 2012-12-03 03:36:13 – InstallationState für Kunden 1 wurde erstellt.
+INFO 2012-12-03 03:36:28 – Installation wurde konvertiert.
+INFO 2012-12-03 03:36:28 – Installation wurde konvertiert.
+INFO 2012-12-03 03:36:28 – InstallationQuery wurde konvertiert.
+INFO 2012-12-03 03:36:28 – Installations von Customer wurden geladen.
+INFO 2012-12-03 03:36:28 – StatisticPerYear für Installation 0 wurde erstellt
+INFO 2012-12-03 03:36:28 – StatisticPerYear für Installation 2 wurde erstellt
+INFO 2012-12-03 03:36:28 – Statistik für Kunden 1 wurde erstellt.
+INFO 2012-12-03 03:36:28 – Installation wurde konvertiert.
+INFO 2012-12-03 03:36:28 – Installation wurde konvertiert.
+INFO 2012-12-03 03:36:28 – InstallationQuery wurde konvertiert.
+INFO 2012-12-03 03:36:28 – Installations von Customer wurden geladen.
+INFO 2012-12-03 03:36:29 – InstallationState für Kunden 1 wurde erstellt.
+INFO 2012-12-03 03:37:40 – Installation wurde konvertiert.
+INFO 2012-12-03 03:37:40 – Installation wurde konvertiert.
+INFO 2012-12-03 03:37:40 – InstallationQuery wurde konvertiert.
+INFO 2012-12-03 03:37:40 – Installations von Customer wurden geladen.
+INFO 2012-12-03 03:37:40 – StatisticPerYear für Installation 0 wurde erstellt
+INFO 2012-12-03 03:37:40 – StatisticPerYear für Installation 2 wurde erstellt
+INFO 2012-12-03 03:37:40 – Statistik für Kunden 1 wurde erstellt.
+INFO 2012-12-03 03:37:40 – Installation wurde konvertiert.
+INFO 2012-12-03 03:37:40 – Installation wurde konvertiert.
+INFO 2012-12-03 03:37:40 – InstallationQuery wurde konvertiert.
+INFO 2012-12-03 03:37:40 – Installations von Customer wurden geladen.
+INFO 2012-12-03 03:37:40 – InstallationState für Kunden 1 wurde erstellt.
+INFO 2012-12-03 03:37:44 – InstallationModel wurde konvertiert.
+INFO 2012-12-03 03:37:44 – Installation wurde gespeichert.
+INFO 2012-12-03 03:37:45 – InstallationRepo wurde gespeichert.
+INFO 2012-12-03 03:37:46 – Installation saved.

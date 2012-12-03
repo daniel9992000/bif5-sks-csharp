@@ -17,7 +17,7 @@ namespace Heli.Scada.Unittests
         ICustomerRepository<CustomerModel> mockcrepo;
         IInstallationRepository<InstallationModel> mockirepo;
        
-        public EngineerBLTest()
+        public void Init()
         {
             Mock<ICustomerRepository<CustomerModel>> mockCustomerRepository = new Mock<ICustomerRepository<CustomerModel>>();
             Mock<IEngineerRepository<EngineerModel>> mockEngineerRepository = new Mock<IEngineerRepository<EngineerModel>>();
@@ -40,7 +40,8 @@ namespace Heli.Scada.Unittests
             mockCustomerRepository.Setup(mr => mr.GetById(It.IsAny<int>())).Returns((int customerid) => customers.Where(customer => customer.customerid == customerid).Single());
             mockCustomerRepository.Setup(mr => mr.Add(It.IsAny<CustomerModel>())).Callback((CustomerModel customer) => customers.Add(customer));
             mockInstallationRepository.Setup(mr => mr.GetByCustomerId(It.IsAny<int>())).Returns((int customerid) => installations.Where(installation => installation.customerid == customerid).ToList<InstallationModel>());
-            mockInstallationRepository.Setup(mr => mr.Add(It.IsAny<InstallationModel>())).Callback((InstallationModel installation) => installations.Add(installation));         
+            mockInstallationRepository.Setup(mr => mr.Add(It.IsAny<InstallationModel>())).Callback((InstallationModel installation) => installations.Add(installation));
+            mockInstallationRepository.Setup(mr => mr.GetAll()).Returns(installations);
             mockEngineerRepository.Setup(mr => mr.GetMyCustomers(It.IsAny<int>())).Returns((int id) => customers.Where(customer => customer.engineerid == id).ToList<CustomerModel>());
             
             this.mockcrepo = mockCustomerRepository.Object;
@@ -53,23 +54,40 @@ namespace Heli.Scada.Unittests
         [TestMethod]
         public void TestcreateCustomer()
         {
+            Init();
             EngineerBL ebl = new EngineerBL(mockcrepo, mockerepo,mockirepo);
             CustomerModel mycustomer = new CustomerModel{
                 customerid=1, firstname="new", lastname="user", username="newuser", email="newuser@aon.at",
                 engineerid=0, Installation=new List<int>{0,1}, password="test123"
             };
-            InstallationModel myinstallation = new InstallationModel{
-                installationid=1, customerid=1, description="testinstallation",
-                 serialno="testser", latitude=33, longitude=44, Measurement=new List<int>{0}
+            ebl.createCustomer(mycustomer);
+            Assert.AreEqual(2, mockcrepo.GetAll().Count);
+        }
+
+        [TestMethod]
+        public void TestcreateInstallation()
+        {
+            Init();
+            EngineerBL ebl = new EngineerBL(mockcrepo, mockerepo, mockirepo);
+       
+            InstallationModel myinstallation = new InstallationModel
+            {
+                installationid = 1,
+                customerid = 0,
+                description = "testinstallation",
+                serialno = "testser",
+                latitude = 33,
+                longitude = 44,
+                Measurement = new List<int> { 0 }
             };
-            ebl.createCustomer(mycustomer, myinstallation);
-            Assert.AreEqual(2, mockcrepo.GetAll().Count);
-            Assert.AreEqual(2, mockcrepo.GetAll().Count);
+            ebl.createInstallation(myinstallation);
+            Assert.AreEqual(2, mockirepo.GetAll().Count);
         }
 
         [TestMethod]
         public void TestshowMyCustomers()
         {
+            Init();
             EngineerBL ebl = new EngineerBL(mockcrepo, mockerepo, mockirepo);
             List<CustomerModel> clist= ebl.showMyCustomers(0);
             Assert.IsNotNull(clist);

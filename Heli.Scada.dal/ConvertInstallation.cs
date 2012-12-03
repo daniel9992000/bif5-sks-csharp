@@ -70,6 +70,7 @@ namespace Heli.Scada.dal
                installation.installationid = ininstallation.installationid;
                installation.latitude = ininstallation.latitude;
                installation.longitude = ininstallation.longitude;
+               installation.description = ininstallation.description;
                installation.serialno = ininstallation.serialno;
                //installation.Customer = ConvertCustomer.ConverttoEntity(crepo.GetById(installation.customerid));
                foreach (var item in ininstallation.Measurement)

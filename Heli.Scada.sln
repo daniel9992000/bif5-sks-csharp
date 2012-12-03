@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heli.Scada.BLInterfaces", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heli.Scada.RestService", "Heli.Scada.RestService\Heli.Scada.RestService.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heli.Scada.SoapService", "Heli.Scada.SoapService\Heli.Scada.SoapService.csproj", "{EF364A25-8D0C-4E4C-997F-E8DA820E9E6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF364A25-8D0C-4E4C-997F-E8DA820E9E6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF364A25-8D0C-4E4C-997F-E8DA820E9E6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF364A25-8D0C-4E4C-997F-E8DA820E9E6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF364A25-8D0C-4E4C-997F-E8DA820E9E6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
