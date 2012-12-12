@@ -116,5 +116,18 @@ namespace Heli.Scada.BL
             }
             return clist;
         }
+
+        public bool validateEngineer(string username, string password)
+        {
+            try
+            {
+                return erepo.validateEngineer(username, password);
+            }
+            catch (BLException exp)
+            {
+                log.Error("Fehler bei der Authentifikation des Engineer via Soap.");
+                throw new BLException("Fehler bei der Authentifikation des Engineer via Soap.", exp);
+            }
+        }
     }
 }

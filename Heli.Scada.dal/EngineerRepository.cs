@@ -125,5 +125,24 @@ namespace Heli.Scada.dal
             } 
             return clist;
         }
+
+        public bool validateEngineer(string username, string password)
+        {
+            try
+            {
+                IQueryable<Engineer> queryusername = from result in context.Engineer
+                                                     where result.username.Equals(username) && result.password.Equals(password)
+                                                     select result;
+                if (queryusername.Count() > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception exp)
+            {
+                log.Error("Fehler bei Authentikation des Engineers via Soap.");
+                throw new DalException("Fehler bei Authentikation des Engineers via Soap.", exp);
+            }
+        }
     }
 }
