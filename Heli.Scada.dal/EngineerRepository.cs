@@ -126,7 +126,7 @@ namespace Heli.Scada.dal
             return clist;
         }
 
-        public bool validateEngineer(string username, string password)
+        public int validateEngineer(string username, string password)
         {
             try
             {
@@ -134,14 +134,14 @@ namespace Heli.Scada.dal
                                                      where result.username.Equals(username) && result.password.Equals(password)
                                                      select result;
                 if (queryusername.Count() > 0)
-                    return true;
+                    return queryusername.First().engineerid;
                 else
-                    return false;
+                    return -1;
             }
             catch (Exception exp)
             {
-                log.Error("Fehler bei Authentikation des Engineers via Soap.");
-                throw new DalException("Fehler bei Authentikation des Engineers via Soap.", exp);
+                log.Error("Fehler bei Authentikation des Engineers.");
+                throw new DalException("Fehler bei Authentikation des Engineers.", exp);
             }
         }
     }

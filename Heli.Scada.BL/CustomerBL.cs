@@ -95,7 +95,18 @@ namespace Heli.Scada.BL
             return tmp;
         
         }
-
+        public int validateCustomer(string username, string password)
+        {
+            try
+            {
+                return crepo.validateCustomer(username, password);
+            }
+            catch (BLException exp)
+            {
+                log.Error("Fehler bei der Authentifikation des Customer.");
+                throw new BLException("Fehler bei der Authentifikation des Customer.", exp);
+            }
+        }
       
     }
 }

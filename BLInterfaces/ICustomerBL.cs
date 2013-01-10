@@ -12,6 +12,6 @@ namespace Heli.Scada.BLInterfaces
         void createCustomer(CustomerModel customer);
         CustomerModel getCustomer(int id);
         List<InstallationModel> getInstallations(CustomerModel customer);
-     
+        int validateCustomer(string username, string password);
     }
 }

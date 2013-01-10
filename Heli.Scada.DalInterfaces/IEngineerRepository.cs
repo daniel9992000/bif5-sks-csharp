@@ -10,6 +10,6 @@ namespace Heli.Scada.DalInterfaces
     public interface IEngineerRepository<T> :IRepository<T> where T:class
     {
         List<CustomerModel> GetMyCustomers(int id);
-        bool validateEngineer(string username, string password);
+        int validateEngineer(string username, string password);
     }
 }

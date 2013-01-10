@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ICustomerBL.cs" />
     <Compile Include="IEngineerBL.cs" />
+    <Compile Include="IInstallationBL.cs" />
     <Compile Include="IRestServiceBL.cs" />
     <Compile Include="IStatisticService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -105,5 +105,24 @@ namespace Heli.Scada.dal
             }
             return customer;
         }
+
+        public int validateCustomer(string username, string password)
+        {
+            try
+            {
+                IQueryable<Customer> queryusername = from result in context.Customer
+                                                     where result.username.Equals(username) && result.password.Equals(password)
+                                                     select result;
+                if (queryusername.Count() > 0)
+                    return queryusername.First().customerid;
+                else
+                    return -1;
+            }
+            catch (Exception exp)
+            {
+                log.Error("Fehler bei Authentikation des Customers.");
+                throw new DalException("Fehler bei Authentikation des Customers.", exp);
+            }
+        }
     }
 }

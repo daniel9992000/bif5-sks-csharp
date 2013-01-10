@@ -31,7 +31,7 @@ namespace Heli.Scada.SoapService
                 section.Configure(container);
                 IEngineerBL rservicebl = container.Resolve<IEngineerBL>();
 
-                if (!rservicebl.validateEngineer(userName, password))
+                if (rservicebl.validateEngineer(userName, password) >=0)
                 {
                     throw new FaultException("Incorrect Username or Password");
                 }

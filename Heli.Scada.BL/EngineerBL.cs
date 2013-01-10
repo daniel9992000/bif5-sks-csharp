@@ -117,7 +117,7 @@ namespace Heli.Scada.BL
             return clist;
         }
 
-        public bool validateEngineer(string username, string password)
+        public int validateEngineer(string username, string password)
         {
             try
             {
@@ -125,8 +125,8 @@ namespace Heli.Scada.BL
             }
             catch (BLException exp)
             {
-                log.Error("Fehler bei der Authentifikation des Engineer via Soap.");
-                throw new BLException("Fehler bei der Authentifikation des Engineer via Soap.", exp);
+                log.Error("Fehler bei der Authentifikation des Engineer.");
+                throw new BLException("Fehler bei der Authentifikation des Engineer.", exp);
             }
         }
     }

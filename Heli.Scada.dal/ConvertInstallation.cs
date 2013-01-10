@@ -43,6 +43,7 @@ namespace Heli.Scada.dal
                installation.installationid = ininstallation.installationid;
                installation.latitude = ininstallation.latitude;
                installation.longitude = ininstallation.longitude;
+               installation.description = ininstallation.description;
                installation.serialno = ininstallation.serialno;
                foreach (var item in ininstallation.Measurement)
                {
